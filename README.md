@@ -1,5 +1,5 @@
 
-<h1>Functional logarithm that checks if the phone number is valid or not.</h1>
+<h3>Functional logarithm that checks if the phone number is valid or not.</h3>
 
 
 
