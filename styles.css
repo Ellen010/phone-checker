@@ -9,16 +9,19 @@
   --center-text: center;
   --gray-00: #fff;
   --vanille: #E9E3B4;
+  --dvanille: #EADFB0;
   --dp: #381D2A;
   --lp: #3A3044;
   --olive:#AABD8C;
   --lapis: #3E6990;
   --tang: #F39B6D;
   --ltang: #F5AC86;
+  --blue: #2b96bd;
+  --pastel:#bab5a1;
 }
 
 body {
-  background-color: var(--vanille);
+  background-image: linear-gradient(var(--pastel), var(--grey), var(--dvanille), var(--vanille));
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #0a0a23;
 }
@@ -30,29 +33,37 @@ main {
   justify-content: center;
   flex-direction: column;
   padding: 40px 10px;
+  border:2px solid var(--lapis);
 }
 
 .hero {
-  display:flex;
-  flex-direction: row;
+  display: flex;
+align-items: center; 
+  justify-content: stretch; 
+  width: 100%;
 }
+
 .hero-logo {
-  width: 20%;
-  height: 40%;
-  padding-left:10px;
-  padding-right:10px;
+  height: 120px;
+  width: 170px;
+  margin-left: 50px;
+  align-items: flex-start; 
 }
 
 h1 {
-  color: white;
+  color: var(--blue);
   width: 80%;
-  max-width: 480px;
-  margin: 15px 0;
-  text-align: var(--center-text);
-  padding-bottom:15px;
-  border-bottom: 2px solid var(--lapis);
+  text-align: center; 
+  margin: 0 auto;
+  align-items: center; 
 }
 
+.phone {
+  display: flex;
+  align-items: center; 
+  width: 100%;
+  padding-top: 50px;
+}
 .phone-container {
   position: relative;
   background-color: var(--grey);
@@ -64,7 +75,9 @@ h1 {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 }
+
 
 .phone-background {
   background-color: var(--dp);
