@@ -1,46 +1,137 @@
-const userInput = document.getElementById('user-input');
-const checkBtn = document.getElementById('check-btn');
-const clearBtn = document.getElementById('clear-btn');
-const resultsDiv = document.getElementById('results-div');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-const checkValidNumber = input => {
-  if (input === '') {
-    alert('Please provide a phone number');
-    return;
-  }
-  const countryCode = '^(1\\s?)?';
-  const areaCode = '(\\([0-9]{3}\\)|[0-9]{3})';
-  const spacesDashes = '[\\s\\-]?';
-  const phoneNumber = '[0-9]{3}[\\s\\-]?[0-9]{4}$';
-  const phoneRegex = new RegExp(
-    `${countryCode}${areaCode}${spacesDashes}${phoneNumber}`
-  );
+:root {
+  --grey: #dfdfe2;
+  --center-text: center;
+  --gray-00: #fff;
+  --vanille: #E9E3B4;
+  --dp: #381D2A;
+  --lp: #3A3044;
+  --olive:#AABD8C;
+  --lapis: #3E6990;
+  --tang: #F39B6D;
+  --ltang: #F5AC86;
+}
 
-  const pTag = document.createElement('p');
-  pTag.className = 'results-text';
-  phoneRegex.test(input)
-    ? (pTag.style.color = '#00471b')
-    : (pTag.style.color = '#4d3800');
-  pTag.appendChild(
-    document.createTextNode(
-      `${phoneRegex.test(input) ? 'Valid' : 'Invalid'} US number: ${input}`
-    )
-  );
-  resultsDiv.appendChild(pTag);
-};
+body {
+  background-color: var(--vanille);
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #0a0a23;
+}
 
-checkBtn.addEventListener('click', () => {
-  checkValidNumber(userInput.value);
-  userInput.value = '';
-});
+main {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 40px 10px;
+}
 
-userInput.addEventListener('keydown', e => {
-  if (e.key === 'Enter') {
-    checkValidNumber(userInput.value);
-    userInput.value = '';
-  }
-});
+.hero {
+  display:flex;
+  flex-direction: row;
+}
+.hero-logo {
+  width: 20%;
+  height: 40%;
+  padding-left:10px;
+  padding-right:10px;
+}
 
-clearBtn.addEventListener('click', () => {
-  resultsDiv.textContent = '';
-});
+h1 {
+  color: white;
+  width: 80%;
+  max-width: 480px;
+  margin: 15px 0;
+  text-align: var(--center-text);
+  padding-bottom:15px;
+  border-bottom: 2px solid var(--lapis);
+}
+
+.phone-container {
+  position: relative;
+  background-color: var(--grey);
+  width: 250px;
+  height: 460px;
+  margin: 30px auto;
+  border-radius: 15px;
+  border: 15px solid var(--dp);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.phone-background {
+  background-color: var(--dp);
+  width: 100%;
+  height: 25px;
+}
+
+.camera {
+  background-color: var(--grey);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+label {
+  margin: 30px auto 5px;
+  color:var(--lapis);
+}
+
+#user-input {
+  display: block;
+  margin: 30px auto;
+  padding: 5px;
+  border: 1px solid var (--lp);
+  border-radius: 10px;
+  text-align: var(--center-text);
+  width: 90%;
+  height: 42px;
+  font-size: 16px;
+  background-color: var(--ltang);
+}
+
+.phone-footer {
+  background-color: var(--lp);
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-styles {
+  cursor: pointer;
+  width: 100px;
+  margin: 10px;
+  color: #0a0a23;
+  font-size: 18px;
+  background-color: #ffffff;
+  background-image: linear-gradient(#ffffff, var(--olive), var(--tang), var(--grey));
+  border-color: #ffffff;
+  border-width: 3px;
+  border-radius:5px;
+}
+
+#results-div {
+  overflow-y: auto;
+  height: 265px;
+  width: 100%;
+}
+
+.results-text {
+  font-size: 1.2rem;
+  padding: 5px;
+  text-align: var(--center-text);
+  margin: 10px 0;
+  color:var(--lapis);
+}
